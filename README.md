@@ -33,10 +33,11 @@ I train the mobileone-s0 on 8 32G-V100 GPUS, costing about 4 days.
 > python train.py -a mobileone_s0 --dist-url 'tcp://127.0.0.1:23333' --dist-backend 'nccl' --multiprocessing-distributed --world-size 1  --rank 0 --workers 32 {your imagenet-1000k dataset path} --tag hello  --wd 4e-5
 
 ## For use
-> model = make_mobileone_s0(deploy=True)
-> model.load(torch.load('mobileone_depoly_model.pt'))
-> model.cuda()
-
+```
+model = make_mobileone_s0(deploy=True)
+model.load(torch.load('mobileone_depoly_model.pt'))
+model.cuda()
+```
 
 ## acknowledgement
 The entire code is based on [RepVGG](https://github.com/DingXiaoH/RepVGG) repository. Thanks for simply-using code.
