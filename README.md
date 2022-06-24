@@ -8,7 +8,7 @@ Actually I achieve the MobileOne' s0 architecture (the smallest one), and valida
 |Model | before merging blocks | after merging blocks | FLOPS |
 | --- | --- | --- | --- | 
 |origin paper (s0)| none  | 71.4 | 275M |
-|my implementation (s0) |  x | x | 274M |
+|my implementation (s0) |  70.470 | 70.518 | 274M |
 
 
 Note that I only train a "s0" version, but you can easily modify the code to train other version, please see "mobileone.py" to refer to a configuration.
@@ -22,7 +22,7 @@ Different from original paper, We don't use:
 - [ ] Custom Weight decay Loss. I directly use WeightDecay in optimizer.
 
 ## For validation
-I release a pretrained model weight, click [here]() to download.
+I release a pretrained model weight, click [here](https://drive.google.com/file/d/1qP7CBbW5w9Erhub0smhB04nNx1uRTzXD/view?usp=sharing) to download.
 The test script validates the trained model, and also generates a converted deploy model.
 > python test.py {your imagenet-1000k dataset path} deploy mobileone_s0_hello_best.pth.tar
 
