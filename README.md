@@ -21,6 +21,18 @@ Different from original paper, We don't use:
 - [ ] progressive learning curriculum. I directly use 224px to train.
 - [ ] Custom Weight decay Loss. I directly use WeightDecay in optimizer.
 
+## very Important
+I thank grygielski for finding a bug of my implementation, which is a very easy-correct mistake. please refer to [this issue](https://github.com/shoutOutYangJie/MobileOne/issues/9)
+
+Because I don't plan to retrain the model, so I don't want to rewrite the code.
+For the mistake, you can just delete the "if" condition, like this:
+> self.dw_bn_layer = nn.BatchNorm2d(in_channels) if out_channels == in_channels and stride == 1 else None
+
+to
+
+> self.dw_bn_layer = nn.BatchNorm2d(in_channels)
+
+
 ## For validation
 I release a pretrained model weight, click [here](https://drive.google.com/file/d/1qP7CBbW5w9Erhub0smhB04nNx1uRTzXD/view?usp=sharing) to download.
 The test script validates the trained model, and also generates a converted deploy model.
